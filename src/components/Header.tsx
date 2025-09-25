@@ -90,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={onToggleTheme}
             aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
           >
-            {isDarkMode ? '☀️' : '🌙'}
+            {isDarkMode ? 'Light' : 'Dark'}
           </button>
         </div>
       </div>

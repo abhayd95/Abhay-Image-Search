@@ -250,17 +250,20 @@ body {
     color: var(--text);
     border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
     border-radius: var(--radius-md);
-    width: 44px;
-    height: 44px;
+    padding: 8px 16px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all var(--transition);
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     z-index: 10;
     pointer-events: auto;
     position: relative;
+    white-space: nowrap;
 }
 
 .theme-toggle:hover {
