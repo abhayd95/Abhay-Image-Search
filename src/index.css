@@ -141,7 +141,9 @@ body {
     justify-content: flex-end;
 }
 
+
 /* Header Search */
+
 .header-search-form {
     flex: 1;
     max-width: 400px;
@@ -266,33 +268,35 @@ body {
 
 
 /* Hero Section */
+
 .hero-section {
-  padding: clamp(32px, 8vw, 60px) 20px;
-  text-align: center;
-  background: linear-gradient(135deg, color-mix(in oklab, var(--bg) 95%, var(--accent) 5%) 0%, var(--bg) 100%);
+    padding: clamp(32px, 8vw, 60px) 20px;
+    text-align: center;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--bg) 95%, var(--accent) 5%) 0%, var(--bg) 100%);
 }
 
 .hero-content {
-  max-width: var(--container-max);
-  margin: 0 auto;
+    max-width: var(--container-max);
+    margin: 0 auto;
 }
 
 .hero-title {
-  font-size: clamp(28px, 5vw, 42px);
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 12px;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  letter-spacing: -0.02em;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 12px;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-  font-size: clamp(16px, 2.5vw, 20px);
-  color: var(--muted);
-  margin-bottom: 32px;
-  font-weight: 400;
-  line-height: 1.5;
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--muted);
+    margin-bottom: 32px;
+    font-weight: 400;
+    line-height: 1.5;
 }
+
 
 /* Main content */
 
@@ -481,48 +485,41 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+
 /* Mobile Responsive */
+
 @media (max-width: 480px) {
     .header-container {
         padding: 0 16px;
         gap: 12px;
     }
-    
     .header-title {
         font-size: 18px;
     }
-    
     .header-actions {
         gap: 8px;
     }
-    
     .header-search-form {
         max-width: none;
     }
-    
     .header-search-container {
         height: 36px;
         padding: 0 12px 0 12px;
     }
-    
     .header-search-button {
         width: 32px;
         height: 32px;
     }
-    
     .quick-chips {
         justify-content: flex-start;
         padding: 0 10px;
     }
-    
     .hero-section {
         padding: 24px 16px;
     }
-    
     .hero-title {
         font-size: 24px;
     }
-    
     .hero-subtitle {
         font-size: 16px;
         margin-bottom: 24px;
