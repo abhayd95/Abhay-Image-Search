@@ -36,7 +36,7 @@ export const SearchBar = ({ onSearch, onClear, isLoading, initialQuery = '' }: S
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Search for images..."
+          placeholder="Search high-quality photos (e.g., cats, mountains)"
           className="search-input"
           disabled={isLoading}
           aria-label="Search for images"

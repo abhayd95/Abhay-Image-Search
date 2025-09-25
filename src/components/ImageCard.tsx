@@ -52,23 +52,48 @@ export const ImageCard = ({ photo }: ImageCardProps) => {
           loading="lazy"
         />
         <div className="image-overlay">
-          <button
-            className="download-button"
-            onClick={handleDownload}
-            onKeyDown={handleKeyDown}
-            disabled={isDownloading}
-            aria-label={`Download image by ${photo.user.name}`}
-          >
-            {isDownloading ? (
-              <div className="spinner small" aria-hidden="true"></div>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7,10 12,15 17,10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-            )}
-          </button>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <button
+              className="download-button"
+              onClick={handleDownload}
+              onKeyDown={handleKeyDown}
+              disabled={isDownloading}
+              aria-label={`Download image by ${photo.user.name}`}
+            >
+              {isDownloading ? (
+                <div className="spinner small" aria-hidden="true"></div>
+              ) : (
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7,10 12,15 17,10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Download
+                </>
+              )}
+            </button>
+            <div className="attribution" style={{ color: 'white', fontSize: '12px' }}>
+              Photo by{' '}
+              <a
+                href={photo.user.links.html}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'white', textDecoration: 'underline' }}
+              >
+                {photo.user.name}
+              </a>{' '}
+              on{' '}
+              <a
+                href={photo.links.html}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'white', textDecoration: 'underline' }}
+              >
+                Unsplash
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div className="image-info">

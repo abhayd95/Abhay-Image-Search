@@ -48,6 +48,13 @@ export const Gallery = ({
           </svg>
           <h3>No images found</h3>
           <p>Try searching for something else</p>
+          <button 
+            onClick={() => onRetry()} 
+            className="retry-button"
+            style={{ marginTop: '1rem' }}
+          >
+            Try 'nature'
+          </button>
         </div>
       </div>
     );
@@ -62,11 +69,16 @@ export const Gallery = ({
       </div>
       
       {isLoading && (
-        <div className="loading-state">
-          <div className="loading-content">
-            <div className="spinner large" aria-hidden="true"></div>
-            <p>Loading images...</p>
-          </div>
+        <div className="gallery-grid">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <div key={index} className="image-card">
+              <div className="image-container">
+                <div className="image-skeleton">
+                  <div className="skeleton-content"></div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       )}
       
