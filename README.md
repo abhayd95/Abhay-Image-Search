@@ -170,6 +170,14 @@ VALUE: [Your Unsplash Access Key from .env file]
 2. Wait for build to complete (2-3 minutes)
 3. Your site will be available at `https://your-app-name.onrender.com`
 
+### ✅ Deployment Checklist
+- [x] **vite.config.ts**: `base: "/"` configured
+- [x] **public/_redirects**: SPA routing configured (`/* /index.html 200`)
+- [x] **API Key Guard**: Friendly error message instead of crash
+- [x] **Build Command**: `npm run build`
+- [x] **Publish Directory**: `dist`
+- [x] **Environment Variable**: `VITE_UNSPLASH_ACCESS_KEY`
+
 #### 4. Post-Deploy Verification
 1. **Check Console**: Open browser dev tools → Console
    - Should see no 404 errors for environment variables
