@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { SearchBar } from './components/SearchBar';
+import { Header } from './components/Header';
+import { Hero } from './components/Hero';
 import { Gallery } from './components/Gallery';
 import { type UnsplashPhoto, searchPhotos } from './lib/unsplash';
 import { personalResults } from './lib/overrides';
@@ -141,16 +142,13 @@ function App() {
   if (!hasApiKey) {
     return (
       <div className="app">
-        <header className="app-header">
-          <h1>Abhay Image Search</h1>
-          <button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-          >
-            {isDarkMode ? '☀️' : '🌙'}
-          </button>
-        </header>
+        <Header
+          onSearch={() => {}}
+          onClear={() => {}}
+          isLoading={false}
+          isDarkMode={isDarkMode}
+          onToggleTheme={toggleTheme}
+        />
         <div className="api-key-alert">
           <div className="alert-content">
             <h3>⚠️ API Key Missing</h3>
@@ -163,22 +161,17 @@ function App() {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>Abhay Image Search</h1>
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-        >
-          {isDarkMode ? '☀️' : '🌙'}
-        </button>
-      </header>
-      
-      <SearchBar 
+      <Header
         onSearch={(query) => handleSearch(query)}
         onClear={handleClear}
         isLoading={isLoading}
-        initialQuery={currentQuery}
+        isDarkMode={isDarkMode}
+        onToggleTheme={toggleTheme}
+      />
+      
+      <Hero 
+        onSearch={(query) => handleSearch(query)}
+        isLoading={isLoading}
       />
       
       <main className="app-main">
