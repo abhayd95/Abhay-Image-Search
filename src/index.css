@@ -1,14 +1,15 @@
 /* Premium Design System - CSS Variables */
 :root {
-  /* Dark theme (default) */
-  --bg: #0b1220;
-  --surface: #111827;
-  --elev: #0f172a;
-  --text: #e5e7eb;
-  --muted: #9aa4b2;
-  --accent: #60a5fa;
-  --accent2: #a78bfa;
+  /* Light theme (default) */
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --elev: #ffffff;
+  --text: #0f172a;
+  --muted: #667085;
+  --accent: #2563eb;
+  --accent2: #8b5cf6;
   --ring: color-mix(in oklab, var(--accent) 70%, transparent);
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
   
   /* Spacing & Layout */
   --container-max: 1200px;
@@ -19,40 +20,36 @@
   --radius-xl: 18px;
   --radius-2xl: 20px;
   
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(2, 6, 23, 0.08);
-  --shadow-md: 0 8px 24px rgba(2, 6, 23, 0.18);
-  --shadow-lg: 0 10px 30px rgba(2, 6, 23, 0.20);
-  --shadow-xl: 0 20px 40px rgba(2, 6, 23, 0.25);
-  
   /* Transitions */
   --transition: 200ms ease;
   --transition-slow: 300ms ease;
 }
 
-/* Light theme */
-[data-theme="light"] {
-  --bg: #f7f8fb;
-  --surface: #ffffff;
-  --elev: #ffffff;
-  --text: #0f172a;
-  --muted: #667085;
-  --accent: #2563eb;
-  --accent2: #8b5cf6;
+/* Dark theme */
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --surface: #101827;
+  --elev: #0f172a;
+  --text: #e5e7eb;
+  --muted: #9aa4b2;
+  --accent: #60a5fa;
+  --accent2: #a78bfa;
   --ring: color-mix(in oklab, var(--accent) 70%, transparent);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* System theme detection */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --bg: #f7f8fb;
-    --surface: #ffffff;
-    --elev: #ffffff;
-    --text: #0f172a;
-    --muted: #667085;
-    --accent: #2563eb;
-    --accent2: #8b5cf6;
+    --bg: #0b1220;
+    --surface: #101827;
+    --elev: #0f172a;
+    --text: #e5e7eb;
+    --muted: #9aa4b2;
+    --accent: #60a5fa;
+    --accent2: #a78bfa;
     --ring: color-mix(in oklab, var(--accent) 70%, transparent);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   }
 }
 
@@ -103,8 +100,8 @@ body {
   border-bottom: 1px solid color-mix(in oklab, var(--muted) 20%, transparent);
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 clamp(16px, 4vw, 32px);
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 40px);
   transition: all var(--transition);
 }
 
@@ -116,13 +113,35 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-align: center;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  background: color-mix(in oklab, var(--surface) 80%, var(--accent) 20%);
+  color: var(--text);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+  border-radius: var(--radius-md);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: 18px;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Main content */
 .app-main {
   flex: 1;
-  padding: clamp(32px, 8vw, 80px) clamp(16px, 4vw, 32px);
+  padding: clamp(28px, 6vw, 80px) 20px;
   max-width: var(--container-max);
   margin: 0 auto;
   width: 100%;
@@ -147,13 +166,13 @@ body {
   border-radius: var(--radius-xl);
   height: 56px;
   padding: 0 20px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow);
   transition: all var(--transition);
   border: 1px solid color-mix(in oklab, var(--muted) 15%, transparent);
 }
 
 .search-container:focus-within {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
   transform: translateY(-1px);
   border-color: var(--accent);
 }
@@ -225,13 +244,13 @@ body {
   cursor: pointer;
   transition: all var(--transition);
   font-weight: 600;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .search-button:hover:not(:disabled) {
   background: var(--accent2);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .search-button:active:not(:disabled) {
@@ -251,6 +270,9 @@ body {
   gap: 8px;
   margin-top: 20px;
   flex-wrap: wrap;
+  overflow-x: auto;
+  padding: 0 20px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .chip {
@@ -264,13 +286,22 @@ body {
   cursor: pointer;
   transition: all var(--transition);
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .chip:hover {
   background: var(--accent);
   color: white;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 480px) {
+  .quick-chips {
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
 }
 
 /* Gallery */
@@ -292,21 +323,14 @@ body {
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 900px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-}
-
-@media (min-width: 1025px) {
+@media (min-width: 901px) {
   .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 20px;
@@ -318,7 +342,7 @@ body {
   background: var(--surface);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
   transition: all var(--transition);
   opacity: 0;
   transform: translateY(8px);
@@ -335,7 +359,7 @@ body {
 
 .image-card:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow);
 }
 
 .image-container {
@@ -384,6 +408,23 @@ body {
 
 .image-card:hover .image {
   transform: scale(1.04);
+}
+
+/* Sheen effect on hover */
+.image-card:hover .image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: sheen 0.6s ease;
+}
+
+@keyframes sheen {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .image-overlay {
@@ -523,6 +564,7 @@ body {
   font-weight: 600;
   color: var(--text);
   margin-bottom: 8px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 .error-content p,
@@ -579,6 +621,12 @@ body {
   transform: translateY(-1px);
 }
 
+@media (max-width: 480px) {
+  .load-more-button {
+    width: 100%;
+  }
+}
+
 /* Footer */
 .app-footer {
   background: var(--surface);
@@ -624,35 +672,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Focus styles for accessibility */
-.search-input:focus-visible,
-.search-button:focus-visible,
-.clear-button:focus-visible,
-.download-button:focus-visible,
-.retry-button:focus-visible,
-.load-more-button:focus-visible,
-.chip:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .image-card {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
 /* Modal Styles */
 .modal-backdrop {
   position: fixed;
@@ -679,7 +698,7 @@ body {
 .modal-content {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow);
   max-width: 90vw;
   max-height: 90vh;
   overflow: hidden;
@@ -822,6 +841,37 @@ body {
   .modal-action-button {
     flex: none;
     width: 100%;
+  }
+}
+
+/* Focus styles for accessibility */
+.search-input:focus-visible,
+.search-button:focus-visible,
+.clear-button:focus-visible,
+.download-button:focus-visible,
+.retry-button:focus-visible,
+.load-more-button:focus-visible,
+.chip:focus-visible,
+.theme-toggle:focus-visible,
+.image-card:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .image-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 

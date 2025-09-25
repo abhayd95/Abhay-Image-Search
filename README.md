@@ -130,6 +130,59 @@ This project is for educational purposes. Images are provided by Unsplash and ar
 4. Test thoroughly
 5. Submit a pull request
 
+## 🚀 Render Deployment Checklist
+
+### Prerequisites
+1. **GitHub Repository**: Ensure your code is pushed to GitHub
+2. **Unsplash API Key**: Have your Unsplash Access Key ready
+
+### Render Setup Steps
+
+#### 1. Environment Variables
+In Render Dashboard → Environment, add:
+```
+KEY: VITE_UNSPLASH_ACCESS_KEY
+VALUE: [Your Unsplash Access Key]
+```
+
+#### 2. Build Configuration
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
+- **Root Directory**: Leave empty (or set to project root)
+
+#### 3. SPA Configuration
+- **Static Site**: Yes
+- **Redirects**: Already configured in `public/_redirects`
+- **Headers**: Default (no additional headers needed)
+
+#### 4. Post-Deploy Verification
+1. **Check Console**: Open browser dev tools → Console
+   - Should see no 404 errors for environment variables
+   - Should see no runtime errors
+2. **Test Search**: Try searching for "cats" or "nature"
+3. **Test Personal Query**: Search "abhay" to see custom card
+4. **Test Theme Toggle**: Click moon icon in header
+5. **Test Responsive**: Resize browser window
+
+#### 5. Troubleshooting
+- **Blank Page**: Check if `VITE_UNSPLASH_ACCESS_KEY` is set correctly
+- **404 Errors**: Verify `public/_redirects` file exists with `/*   /index.html   200`
+- **API Errors**: Check Unsplash API key validity and rate limits
+- **Build Failures**: Check Node.js version (use 18.x or 20.x)
+
+### File Structure for Render
+```
+abhay-image-search/
+├── public/
+│   └── _redirects          # SPA routing
+├── src/
+│   ├── components/         # React components
+│   ├── lib/               # API utilities
+│   └── index.css          # Styles
+├── package.json           # Dependencies
+└── vite.config.ts         # Build config
+```
+
 ## Troubleshooting
 
 ### Common Issues

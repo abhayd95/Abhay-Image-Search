@@ -12,6 +12,7 @@ const QUICK_CHIPS = ['nature', 'mountains', 'city', 'cats', 'flowers'];
 export const SearchBar = ({ onSearch, onClear, isLoading, initialQuery = '' }: SearchBarProps) => {
   const [query, setQuery] = useState(initialQuery);
 
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {

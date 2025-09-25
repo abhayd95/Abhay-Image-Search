@@ -122,6 +122,18 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Abhay Image Search</h1>
+        <button
+          className="theme-toggle"
+          onClick={() => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+          }}
+          aria-label="Toggle theme"
+        >
+          🌙
+        </button>
       </header>
       
       <SearchBar 
