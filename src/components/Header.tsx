@@ -4,16 +4,12 @@ interface HeaderProps {
   onSearch: (query: string) => void;
   onClear: () => void;
   isLoading: boolean;
-  isDarkMode: boolean;
-  onToggleTheme: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onSearch,
   onClear,
-  isLoading,
-  isDarkMode,
-  onToggleTheme
+  isLoading
 }) => {
   const [query, setQuery] = useState('');
 
@@ -85,13 +81,6 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </form>
           
-          <button
-            className="theme-toggle"
-            onClick={onToggleTheme}
-            aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-          >
-            {isDarkMode ? 'Light' : 'Dark'}
-          </button>
         </div>
       </div>
     </header>

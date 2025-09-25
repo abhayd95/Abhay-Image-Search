@@ -82,7 +82,7 @@ body {
 
 #root {
     min-height: 100vh;
-    display: flex;
+  display: flex;
     flex-direction: column;
 }
 
@@ -90,7 +90,7 @@ body {
 /* App layout */
 
 .app {
-    min-height: 100vh;
+  min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -243,34 +243,6 @@ body {
 }
 
 
-/* Theme Toggle */
-
-.theme-toggle {
-    background: color-mix(in oklab, var(--surface) 80%, var(--accent) 20%);
-    color: var(--text);
-    border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
-    border-radius: var(--radius-md);
-    padding: 8px 16px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--transition);
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    z-index: 10;
-    pointer-events: auto;
-    position: relative;
-    white-space: nowrap;
-}
-
-.theme-toggle:hover {
-    background: var(--accent);
-    color: white;
-    transform: scale(1.05);
-}
 
 
 /* Hero Section */
@@ -453,7 +425,7 @@ body {
     border-radius: var(--radius-xl);
     padding: 10px 18px;
     font-size: 14px;
-    font-weight: 500;
+  font-weight: 500;
     cursor: pointer;
     transition: all var(--transition);
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -1090,7 +1062,7 @@ body {
     border-radius: var(--radius-md);
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
+  cursor: pointer;
     transition: all var(--transition);
     border: none;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -1145,10 +1117,9 @@ body {
 .retry-button:focus-visible,
 .load-more-button:focus-visible,
 .chip:focus-visible,
-.theme-toggle:focus-visible,
 .image-card:focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 2px;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 
