@@ -12,16 +12,26 @@ function App() {
   const [currentQuery, setCurrentQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  // Load saved query from localStorage on mount
+  // Load saved query and theme from localStorage on mount
   useEffect(() => {
     const savedQuery = localStorage.getItem('lastSearchQuery');
     if (savedQuery) {
       setCurrentQuery(savedQuery);
       // Don't auto-search on load, just set the query
     }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    const isDark = theme === 'dark';
+    
+    setIsDarkMode(isDark);
+    document.documentElement.setAttribute('data-theme', theme);
   }, []);
 
   const handleSearch = useCallback(async (query: string, page = 1, append = false) => {
@@ -109,6 +119,13 @@ function App() {
     localStorage.removeItem('lastSearchQuery');
   }, []);
 
+  const toggleTheme = useCallback(() => {
+    const newTheme = isDarkMode ? 'light' : 'dark';
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  }, [isDarkMode]);
+
   // Cleanup on unmount
   useEffect(() => {
     return () => {
@@ -118,21 +135,42 @@ function App() {
     };
   }, []);
 
+  // Check for API key
+  const hasApiKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+
+  if (!hasApiKey) {
+    return (
+      <div className="app">
+        <header className="app-header">
+          <h1>Abhay Image Search</h1>
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+          >
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
+        </header>
+        <div className="api-key-alert">
+          <div className="alert-content">
+            <h3>⚠️ API Key Missing</h3>
+            <p>Please set the VITE_UNSPLASH_ACCESS_KEY environment variable to use this application.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="app">
       <header className="app-header">
         <h1>Abhay Image Search</h1>
         <button
           className="theme-toggle"
-          onClick={() => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-          }}
-          aria-label="Toggle theme"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
         >
-          🌙
+          {isDarkMode ? '☀️' : '🌙'}
         </button>
       </header>
       
