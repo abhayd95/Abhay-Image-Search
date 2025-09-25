@@ -16,6 +16,10 @@ function App() {
   
   const abortControllerRef = useRef<AbortController | null>(null);
 
+  // Debug logging
+  console.log('App component rendering...');
+  console.log('Environment check:', import.meta.env.VITE_UNSPLASH_ACCESS_KEY ? 'API key present' : 'API key missing');
+
   // Load saved query from localStorage on mount
   useEffect(() => {
     const savedQuery = localStorage.getItem('lastSearchQuery');

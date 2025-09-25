@@ -15,11 +15,6 @@
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             const theme = prefersDark ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', theme);
-
-            // Check for missing API key
-            if (!import.meta.env?.VITE_UNSPLASH_ACCESS_KEY) {
-                console.warn('VITE_UNSPLASH_ACCESS_KEY is not set. Please check your environment variables.');
-            }
         })();
     </script>
 </head>
