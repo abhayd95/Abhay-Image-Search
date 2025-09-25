@@ -122,13 +122,14 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Abhay Image Search</h1>
-        <SearchBar 
-          onSearch={(query) => handleSearch(query)}
-          onClear={handleClear}
-          isLoading={isLoading}
-          initialQuery={currentQuery}
-        />
       </header>
+      
+      <SearchBar 
+        onSearch={(query) => handleSearch(query)}
+        onClear={handleClear}
+        isLoading={isLoading}
+        initialQuery={currentQuery}
+      />
       
       <main className="app-main">
         <Gallery

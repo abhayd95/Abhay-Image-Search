@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { type UnsplashPhoto } from '../lib/unsplash';
 import { ImageCard } from './ImageCard';
+import { ImageModal } from './ImageModal';
 
 interface GalleryProps {
   photos: UnsplashPhoto[];
@@ -18,6 +20,15 @@ export const Gallery = ({
   error, 
   onRetry 
 }: GalleryProps) => {
+  const [selectedPhoto, setSelectedPhoto] = useState<UnsplashPhoto | null>(null);
+
+  const handleImageClick = (photo: UnsplashPhoto) => {
+    setSelectedPhoto(photo);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedPhoto(null);
+  };
   if (error) {
     return (
       <div className="error-state">
@@ -64,7 +75,11 @@ export const Gallery = ({
     <div className="gallery-container">
       <div className="gallery-grid">
         {photos.map((photo) => (
-          <ImageCard key={photo.id} photo={photo} />
+          <ImageCard 
+            key={photo.id} 
+            photo={photo} 
+            onImageClick={handleImageClick}
+          />
         ))}
       </div>
       
@@ -93,6 +108,11 @@ export const Gallery = ({
           </button>
         </div>
       )}
+      
+      <ImageModal 
+        photo={selectedPhoto} 
+        onClose={handleCloseModal} 
+      />
     </div>
   );
 };

@@ -4,9 +4,10 @@ import { triggerDownload } from '../lib/unsplash';
 
 interface ImageCardProps {
   photo: UnsplashPhoto;
+  onImageClick?: (photo: UnsplashPhoto) => void;
 }
 
-export const ImageCard = ({ photo }: ImageCardProps) => {
+export const ImageCard = ({ photo, onImageClick }: ImageCardProps) => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -40,6 +41,17 @@ export const ImageCard = ({ photo }: ImageCardProps) => {
     }
   };
 
+  const handleImageClick = () => {
+    onImageClick?.(photo);
+  };
+
+  const handleImageKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleImageClick();
+    }
+  };
+
   const altText = photo.alt_description || photo.description || `Photo by ${photo.user.name}`;
 
   return (
@@ -56,6 +68,11 @@ export const ImageCard = ({ photo }: ImageCardProps) => {
           className={`image ${imageLoaded ? 'loaded' : ''}`}
           onLoad={() => setImageLoaded(true)}
           loading="lazy"
+          onClick={handleImageClick}
+          onKeyDown={handleImageKeyDown}
+          tabIndex={0}
+          role="button"
+          aria-label={`View full size image by ${photo.user.name}`}
         />
         <div className="image-overlay">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
