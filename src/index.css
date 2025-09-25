@@ -635,22 +635,21 @@ body {
         border-radius: 12px;
         font-weight: 600;
     }
-    
     /* Enhanced mobile states */
-    .empty-state, .error-state {
+    .empty-state,
+    .error-state {
         padding: 40px 20px;
     }
-    
-    .empty-content h3, .error-content h3 {
+    .empty-content h3,
+    .error-content h3 {
         font-size: 20px;
         margin-bottom: 12px;
     }
-    
-    .empty-content p, .error-content p {
+    .empty-content p,
+    .error-content p {
         font-size: 16px;
         margin-bottom: 24px;
     }
-    
     .retry-button {
         padding: 14px 24px;
         font-size: 16px;

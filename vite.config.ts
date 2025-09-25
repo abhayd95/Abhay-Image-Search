@@ -14,6 +14,17 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom']
+        },
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (/\.(css)$/.test(assetInfo.name)) {
+            return `assets/css/[name]-[hash][extname]`;
+          }
+          if (/\.(js)$/.test(assetInfo.name)) {
+            return `assets/js/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
         }
       }
     }
