@@ -60,7 +60,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 #root {
@@ -208,7 +208,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-  cursor: pointer;
+    cursor: pointer;
     transition: all 0.2s ease;
     font-weight: 600;
 }
@@ -238,65 +238,67 @@ body {
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 2rem;
 }
 
+
 /* Responsive grid breakpoints */
+
 @media (max-width: 640px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-  }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
 }
 
 @media (min-width: 1441px) {
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 24px;
-  }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 24px;
+    }
 }
 
 
 /* Image card styles */
 
 .image-card {
-  background: var(--bg-surface);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(6px);
-  animation: fadeInUp 0.4s ease forwards;
+    background: var(--bg-surface);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: fadeInUp 0.4s ease forwards;
 }
 
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .image-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .image-container {
@@ -336,19 +338,19 @@ body {
 }
 
 .image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  opacity: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    opacity: 0;
 }
 
 .image.loaded {
-  opacity: 1;
+    opacity: 1;
 }
 
 .image-card:hover .image {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .image-overlay {
@@ -535,7 +537,7 @@ body {
     padding: 12px 24px;
     font-size: 16px;
     font-weight: 600;
-  cursor: pointer;
+    cursor: pointer;
     transition: all 0.2s ease;
     width: 100%;
     max-width: 320px;
@@ -597,30 +599,33 @@ body {
 
 
 /* Footer styles */
+
 .app-footer {
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border-light);
-  padding: 20px;
-  text-align: center;
-  margin-top: auto;
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-light);
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
 }
 
 .app-footer p {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin: 0;
-  font-weight: 400;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0;
+    font-weight: 400;
 }
+
 
 /* Responsive adjustments */
 
 @media (max-width: 640px) {
     .app-main {
         padding: 0 16px;
-        padding-bottom: 80px; /* Space for footer */
+        padding-bottom: 80px;
+        /* Space for footer */
     }
     .search-container {
         height: 52px;
