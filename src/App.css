@@ -1,8 +1,11 @@
 /* App-specific styles - most styling moved to index.css */
 
+
 /* Additional app-specific overrides if needed */
+
 .app {
-  /* App container styles are in index.css */
+    /* App container styles are in index.css */
 }
+
 
 /* Any component-specific styles that don't fit in index.css can go here */

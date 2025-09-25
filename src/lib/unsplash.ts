@@ -19,6 +19,8 @@ export interface UnsplashPhoto {
   };
   alt_description: string | null;
   description: string | null;
+  isPersonal?: boolean;
+  subtitle?: string;
 }
 
 export interface SearchResponse {

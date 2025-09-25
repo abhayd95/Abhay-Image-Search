@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { SearchBar } from './components/SearchBar';
 import { Gallery } from './components/Gallery';
 import { type UnsplashPhoto, searchPhotos } from './lib/unsplash';
+import { personalResults } from './lib/overrides';
 import './App.css';
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
     setError(null);
 
     try {
+      // Check for personal results first
+      const personal = personalResults(query);
+      
       const response = await searchPhotos(
         query, 
         page, 
@@ -46,7 +50,9 @@ function App() {
       if (append) {
         setPhotos(prev => [...prev, ...response.results]);
       } else {
-        setPhotos(response.results);
+        // Prepend personal results if found, then add Unsplash results
+        const combinedResults = [...personal, ...response.results];
+        setPhotos(combinedResults);
         setCurrentPage(1);
       }
 
@@ -64,7 +70,9 @@ function App() {
       setError(errorMessage);
       
       if (!append) {
-        setPhotos([]);
+        // Still show personal results even if Unsplash fails
+        const personal = personalResults(query);
+        setPhotos(personal);
       }
     } finally {
       setIsLoading(false);
