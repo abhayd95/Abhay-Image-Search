@@ -122,11 +122,9 @@ function App() {
 
   const toggleTheme = useCallback(() => {
     const newTheme = isDarkMode ? 'light' : 'dark';
-    console.log('Toggling theme from', isDarkMode ? 'dark' : 'light', 'to', newTheme);
     setIsDarkMode(!isDarkMode);
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    console.log('Theme updated, data-theme:', document.documentElement.getAttribute('data-theme'));
   }, [isDarkMode]);
 
   // Cleanup on unmount

@@ -87,11 +87,7 @@ export const Header: React.FC<HeaderProps> = ({
           
           <button
             className="theme-toggle"
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('Theme toggle clicked, current mode:', isDarkMode);
-              onToggleTheme();
-            }}
+            onClick={onToggleTheme}
             aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
           >
             {isDarkMode ? '☀️' : '🌙'}
