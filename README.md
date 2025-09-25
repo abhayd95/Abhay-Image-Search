@@ -146,6 +146,7 @@ This project is for educational purposes. Images are provided by Unsplash and ar
 4. Select the **main** branch
 
 #### 2. Configure Build Settings
+- **Service Type**: Static Site
 - **Name**: `abhay-image-search` (or your preferred name)
 - **Build Command**: `npm run build`
 - **Publish Directory**: `dist`
@@ -175,7 +176,7 @@ VALUE: [Your Unsplash Access Key from .env file]
    - Should see no runtime errors
 2. **Test Search**: Try searching for "cats" or "nature"
 3. **Test Personal Query**: Search "abhay" to see custom card
-4. **Test Theme Toggle**: Click moon icon in header
+4. **Test Theme**: App should follow your system dark/light mode
 5. **Test Responsive**: Resize browser window
 
 #### 5. Troubleshooting
