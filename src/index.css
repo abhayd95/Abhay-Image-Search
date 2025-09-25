@@ -14,6 +14,7 @@
     /* Spacing & Layout */
     --container-max: 1200px;
     --header-height: 64px;
+    --header-height-mobile: 60px;
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
@@ -464,6 +465,15 @@ body {
 
 /* Mobile Responsive */
 
+/* Base mobile improvements */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
 
 /* Tablet and smaller */
 
@@ -523,13 +533,16 @@ body {
 /* Mobile phones */
 
 @media (max-width: 480px) {
+    .app-header {
+        height: var(--header-height-mobile);
+    }
+    
     .header-container {
         padding: 0 12px;
         gap: 8px;
         flex-direction: row;
         align-items: center;
-        height: 60px;
-        min-height: 60px;
+        height: 100%;
         padding-top: 8px;
         padding-bottom: 8px;
     }
@@ -672,28 +685,110 @@ body {
 /* Very small screens */
 
 @media (max-width: 360px) {
-    .header-container {
-        padding: 0 12px;
+    .app-header {
+        height: 56px;
     }
+    
+    .header-container {
+        padding: 0 8px;
+        gap: 6px;
+    }
+    
+    .header-title {
+        font-size: 14px;
+        max-width: 100px;
+    }
+    
+    .header-search-container {
+        height: 36px;
+        padding: 0 8px;
+    }
+    
+    .header-search-input {
+        font-size: 13px;
+    }
+    
+    .header-search-button {
+        width: 28px;
+        height: 28px;
+    }
+    
     .hero-section {
-        padding: 20px 12px;
+        padding: 16px 8px;
     }
     .hero-title {
-        font-size: 24px;
+        font-size: 20px;
     }
     .hero-subtitle {
-        font-size: 15px;
+        font-size: 13px;
     }
     .gallery-grid {
-        padding: 0 12px;
-        gap: 12px;
+        padding: 0 8px;
+        gap: 10px;
     }
     .app-main {
-        padding: 0 12px 20px 12px;
+        padding: 0 8px 16px 8px;
     }
     .chip {
-        padding: 8px 14px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+    .app-header {
+        height: 52px;
+    }
+    
+    .header-container {
+        padding: 0 6px;
+        gap: 4px;
+    }
+    
+    .header-title {
         font-size: 13px;
+        max-width: 80px;
+    }
+    
+    .header-search-container {
+        height: 32px;
+        padding: 0 6px;
+    }
+    
+    .header-search-input {
+        font-size: 12px;
+    }
+    
+    .header-search-button {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .hero-section {
+        padding: 12px 6px;
+    }
+    
+    .hero-title {
+        font-size: 18px;
+    }
+    
+    .hero-subtitle {
+        font-size: 12px;
+    }
+    
+    .gallery-grid {
+        padding: 0 6px;
+        gap: 8px;
+    }
+    
+    .app-main {
+        padding: 0 6px 12px 6px;
+    }
+    
+    .chip {
+        padding: 5px 10px;
+        font-size: 11px;
     }
 }
 
