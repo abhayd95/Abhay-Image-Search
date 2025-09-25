@@ -130,30 +130,44 @@ This project is for educational purposes. Images are provided by Unsplash and ar
 4. Test thoroughly
 5. Submit a pull request
 
-## 🚀 Render Deployment Checklist
+## 🚀 Render.com Deployment Guide
 
 ### Prerequisites
-1. **GitHub Repository**: Ensure your code is pushed to GitHub
-2. **Unsplash API Key**: Have your Unsplash Access Key ready
+1. **GitHub Repository**: Code pushed to `https://github.com/abhayd95/Abhay-Image-Search.git`
+2. **Unsplash API Key**: Your Unsplash Access Key ready
+3. **Render Account**: Sign up at [render.com](https://render.com)
 
-### Render Setup Steps
+### Step-by-Step Deployment
 
-#### 1. Environment Variables
-In Render Dashboard → Environment, add:
-```
-KEY: VITE_UNSPLASH_ACCESS_KEY
-VALUE: [Your Unsplash Access Key]
-```
+#### 1. Create New Static Site
+1. Go to [Render Dashboard](https://dashboard.render.com)
+2. Click **"New +"** → **"Static Site"**
+3. Connect your GitHub repository: `abhayd95/Abhay-Image-Search`
+4. Select the **main** branch
 
-#### 2. Build Configuration
+#### 2. Configure Build Settings
+- **Name**: `abhay-image-search` (or your preferred name)
 - **Build Command**: `npm run build`
 - **Publish Directory**: `dist`
-- **Root Directory**: Leave empty (or set to project root)
+- **Root Directory**: Leave empty
+- **Node Version**: 18.x or 20.x (recommended)
 
-#### 3. SPA Configuration
-- **Static Site**: Yes
-- **Redirects**: Already configured in `public/_redirects`
-- **Headers**: Default (no additional headers needed)
+#### 3. Environment Variables
+In the **Environment** section, add:
+```
+KEY: VITE_UNSPLASH_ACCESS_KEY
+VALUE: [Your Unsplash Access Key from .env file]
+```
+
+#### 4. Advanced Settings
+- **Auto-Deploy**: Yes (deploys on every push to main)
+- **Pull Request Previews**: Optional
+- **Custom Headers**: Not needed (SPA routing handled by _redirects)
+
+#### 5. Deploy
+1. Click **"Create Static Site"**
+2. Wait for build to complete (2-3 minutes)
+3. Your site will be available at `https://your-app-name.onrender.com`
 
 #### 4. Post-Deploy Verification
 1. **Check Console**: Open browser dev tools → Console
