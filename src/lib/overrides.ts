@@ -11,7 +11,6 @@ export function personalResults(query: string): PersonalPhoto[] {
     "abhay",
     "abhay virus", 
     "abhay tiwari",
-    "abhay d95",
     "abhay_d95"
   ];
 
@@ -21,24 +20,24 @@ export function personalResults(query: string): PersonalPhoto[] {
 
   return [{
     id: "abhay-profile",
-    alt_description: "Abhay (Abhay Virus / Abhay Tiwari)",
-    description: "Personal profile of Abhay (Abhay Virus / Abhay Tiwari)",
+    alt_description: "Abhay Tiwari (Abhay Virus)",
+    description: "Personal profile of Abhay Tiwari (Abhay Virus)",
     urls: {
       small: "/abhay.jpg",
       regular: "/abhay.jpg",
       full: "/abhay.jpg"
     },
     user: {
-      name: "Abhay (Abhay Virus / Abhay Tiwari)",
+      name: "Abhay Tiwari (Abhay Virus)",
       links: {
-        html: "https://www.instagram.com/abhay_d95/"
+        html: "https://www.linkedin.com/in/abhay-tiwari-545a57358/"
       }
     },
     links: {
-      html: "https://www.instagram.com/abhay_d95/",
+      html: "https://www.linkedin.com/in/abhay-tiwari-545a57358/",
       download_location: ""
     },
     isPersonal: true,
-    subtitle: "From Instagram"
+    subtitle: "Creator & Developer"
   }];
 }

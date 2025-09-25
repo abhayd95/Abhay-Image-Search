@@ -40,6 +40,17 @@ function App() {
       // Check for personal results first
       const personal = personalResults(query);
       
+      if (personal.length > 0) {
+        // Show ONLY personal results for abhay queries
+        setPhotos(personal);
+        setCurrentPage(1);
+        setHasMore(false);
+        setCurrentQuery(query);
+        localStorage.setItem('lastSearchQuery', query);
+        return;
+      }
+      
+      // For other queries, use Unsplash API
       const response = await searchPhotos(
         query, 
         page, 
@@ -50,9 +61,7 @@ function App() {
       if (append) {
         setPhotos(prev => [...prev, ...response.results]);
       } else {
-        // Prepend personal results if found, then add Unsplash results
-        const combinedResults = [...personal, ...response.results];
-        setPhotos(combinedResults);
+        setPhotos(response.results);
         setCurrentPage(1);
       }
 
@@ -70,9 +79,7 @@ function App() {
       setError(errorMessage);
       
       if (!append) {
-        // Still show personal results even if Unsplash fails
-        const personal = personalResults(query);
-        setPhotos(personal);
+        setPhotos([]);
       }
     } finally {
       setIsLoading(false);
@@ -133,6 +140,10 @@ function App() {
           onRetry={handleRetry}
         />
       </main>
+      
+      <footer className="app-footer">
+        <p>© Abhay Virus</p>
+      </footer>
     </div>
   );
 }
