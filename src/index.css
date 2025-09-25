@@ -82,7 +82,7 @@ body {
 
 #root {
     min-height: 100vh;
-    display: flex;
+  display: flex;
     flex-direction: column;
 }
 
@@ -90,7 +90,7 @@ body {
 /* App layout */
 
 .app {
-    min-height: 100vh;
+  min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -258,6 +258,9 @@ body {
     cursor: pointer;
     transition: all var(--transition);
     font-size: 18px;
+    z-index: 10;
+    pointer-events: auto;
+    position: relative;
 }
 
 .theme-toggle:hover {
@@ -447,7 +450,7 @@ body {
     border-radius: var(--radius-xl);
     padding: 10px 18px;
     font-size: 14px;
-    font-weight: 500;
+  font-weight: 500;
     cursor: pointer;
     transition: all var(--transition);
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -1084,7 +1087,7 @@ body {
     border-radius: var(--radius-md);
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
+  cursor: pointer;
     transition: all var(--transition);
     border: none;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
