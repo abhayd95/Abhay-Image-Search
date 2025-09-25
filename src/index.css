@@ -464,211 +464,227 @@ body {
 
 /* Mobile Responsive */
 
+
 /* Tablet and smaller */
+
 @media (max-width: 768px) {
     .header-container {
         padding: 0 16px;
         gap: 12px;
         flex-wrap: wrap;
     }
-    
     .header-title {
         font-size: 18px;
         flex-shrink: 0;
     }
-    
     .header-actions {
         gap: 8px;
         flex: 1;
         min-width: 0;
     }
-    
     .header-search-form {
         max-width: none;
         flex: 1;
         min-width: 0;
     }
-    
     .header-search-container {
         height: 40px;
         padding: 0 12px;
     }
-    
     .header-search-input {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
+        /* Prevents zoom on iOS */
     }
-    
     .header-search-button {
         width: 36px;
         height: 36px;
     }
-    
     .header-clear-button {
         width: 20px;
         height: 20px;
     }
-    
     .hero-section {
         padding: 32px 16px;
     }
-    
     .hero-title {
         font-size: 32px;
     }
-    
     .hero-subtitle {
         font-size: 18px;
     }
-    
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
 }
 
+
 /* Mobile phones */
+
 @media (max-width: 480px) {
     .header-container {
-        padding: 0 12px;
-        gap: 8px;
+        padding: 0 16px;
+        gap: 12px;
         flex-direction: column;
         align-items: stretch;
         height: auto;
-        min-height: 64px;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        min-height: 80px;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
-    
     .header-title {
-        font-size: 16px;
+        font-size: 18px;
         text-align: center;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        font-weight: 700;
     }
-    
     .header-actions {
-        gap: 8px;
+        gap: 10px;
         width: 100%;
     }
-    
     .header-search-container {
-        height: 44px;
-        padding: 0 12px;
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 24px;
     }
-    
     .header-search-input {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
+        font-weight: 400;
+        /* Prevents zoom on iOS */
     }
-    
     .header-search-button {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
     }
-    
     .header-clear-button {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
     }
-    
     .quick-chips {
         justify-content: flex-start;
-        padding: 0 12px;
-        gap: 8px;
+        padding: 0 16px;
+        gap: 10px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        margin-top: 8px;
     }
-    
     .chip {
-        padding: 8px 14px;
-        font-size: 13px;
+        padding: 10px 18px;
+        font-size: 14px;
         flex-shrink: 0;
+        border-radius: 20px;
+        font-weight: 500;
     }
-    
     .hero-section {
-        padding: 20px 12px;
+        padding: 24px 16px;
     }
-    
     .hero-title {
-        font-size: 24px;
-        margin-bottom: 8px;
-        line-height: 1.2;
+        font-size: 28px;
+        margin-bottom: 12px;
+        line-height: 1.1;
+        font-weight: 800;
     }
-    
     .hero-subtitle {
         font-size: 16px;
-        margin-bottom: 20px;
-        line-height: 1.4;
+        margin-bottom: 24px;
+        line-height: 1.5;
+        opacity: 0.9;
     }
-    
     .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 0 12px;
+        gap: 16px;
+        padding: 0 16px;
     }
-    
     .app-main {
-        padding: 0 12px 20px 12px;
+        padding: 0 16px 24px 16px;
     }
-    
     .image-card {
-        border-radius: 12px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
-    
     .image-container {
         aspect-ratio: 4/3;
     }
-    
     .download-button {
-        padding: 8px 12px;
-        font-size: 13px;
+        padding: 10px 16px;
+        font-size: 14px;
+        border-radius: 12px;
+        font-weight: 600;
     }
-    
     .load-more-button {
         width: 100%;
-        padding: 14px 20px;
+        padding: 16px 24px;
         font-size: 16px;
+        border-radius: 16px;
+        font-weight: 600;
     }
-    
     .modal-content {
         max-width: 95vw;
         max-height: 95vh;
         margin: 10px;
+        border-radius: 20px;
     }
-    
     .modal-actions {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
-    
     .modal-action-button {
         width: 100%;
         justify-content: center;
+        padding: 14px 20px;
+        border-radius: 12px;
+        font-weight: 600;
+    }
+    
+    /* Enhanced mobile states */
+    .empty-state, .error-state {
+        padding: 40px 20px;
+    }
+    
+    .empty-content h3, .error-content h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .empty-content p, .error-content p {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .retry-button {
+        padding: 14px 24px;
+        font-size: 16px;
+        border-radius: 12px;
+        font-weight: 600;
     }
 }
 
+
 /* Very small screens */
+
 @media (max-width: 360px) {
     .header-container {
-        padding: 0 8px;
+        padding: 0 12px;
     }
-    
     .hero-section {
-        padding: 16px 8px;
+        padding: 20px 12px;
     }
-    
     .hero-title {
-        font-size: 20px;
+        font-size: 24px;
     }
-    
     .hero-subtitle {
-        font-size: 14px;
+        font-size: 15px;
     }
-    
     .gallery-grid {
-        padding: 0 8px;
+        padding: 0 12px;
+        gap: 12px;
     }
-    
     .app-main {
-        padding: 0 8px 16px 8px;
+        padding: 0 12px 20px 12px;
+    }
+    .chip {
+        padding: 8px 14px;
+        font-size: 13px;
     }
 }
 
